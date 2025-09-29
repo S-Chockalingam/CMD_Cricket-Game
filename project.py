@@ -7,15 +7,15 @@ toss = ["heads","tails"]
 
 numbers = [1,2,3,4,5,6]
 
-player_s = []
-bot_s    = []
+player_s = []                  #run for player 
+bot_s    = []                  #run for bot
 
 target = []
 
 
 time.sleep(1)
 print("rules".upper())
-print("this is two overs match - 12 balls only".upper())
+print("this is two overs match - 6 balls only".upper())
 time.sleep(0.6)
 
 print("this is only one wicket match".upper())
@@ -35,7 +35,7 @@ if(player == "tails"):
     
 decision = random.choice(toss)
 
-time.sleep(0.75)
+time.sleep(1)
 
 print("the toss randomly choosen is : ",decision)
 
@@ -69,8 +69,12 @@ if(player==decision):
                     break
             else:
                 print("that ball will be calculated and run not be added, no re-ball")
+                if(i == 6):
+                       print("the player final score is : ",sum(player_s))
+                       target = sum(player_s)+1
+                       time.sleep(1)
+                       print(f"the bot need {target} runs to win the match".upper())
 
-        
 
 
     if(playplayer=="bowl"):
@@ -94,7 +98,15 @@ if(player==decision):
                     print(f"the player need {target} runs to win the match".upper())
                     break
             else:
-                print("that ball will be calculated and run not be added, no re-ball")
+                print("since ball is NO-BALL,  1 extra run will be added")
+                bot_s.append(1)
+                if(i == 6):
+                       print("the bot final score is : ",sum(bot_s)+1)
+                       target = sum(bot_s)+1
+                       time.sleep(1)
+                       print(f"the player need {target} runs to win the match".upper())
+
+
 
 else:
 
@@ -125,7 +137,14 @@ else:
                     print(f"the player need {target} runs to win the match".upper())
                     break
             else:
-                print("that ball will be calculated and run not be added, no re-ball")
+                print("since ball is NO-BALL,  1 extra run will be added")
+                bot_s.append(1)
+                if(i == 6):
+                       print("the bot final score is : ",sum(bot_s))
+                       target = sum(bot_s)+1
+                       time.sleep(1)
+                       print(f"the player need {target} runs to win the match".upper())
+
 
     if(playbot == "bowl"):
         for i in range(1,7,1):
@@ -148,6 +167,13 @@ else:
                     break
             else:
                 print("that ball will be calculated and run not be added, no re-ball")
+                if(i == 6):
+                       print("the player final score is : ",sum(player_s))
+                       target = sum(player_s)+1
+                       time.sleep(1)
+                       print(f"the bot need {target} runs to win the match".upper())
+                       
+
 
 
 
